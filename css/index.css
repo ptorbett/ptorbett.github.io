@@ -1,0 +1,40 @@
+body {
+	font-family: Calibri, Verdana, Sans-serif;
+	background-color: #FFFFFF;
+	color: #333333;
+	max-width: 800px;
+	margin: 0px auto;
+	border: 1px solid #CCCCCC;
+	padding: 10px;
+	margin-top: 10px;
+}
+
+h1 {
+	margin-top: 0px;
+	text-align: center;
+}
+#header {
+	background-color: #16366B;
+	color: #FFFFFF; /* equivalent to #fff or white */
+}
+table {
+	border-color: #000000;
+	border-style: solid;
+	border-width: thin;
+}
+tr.tableHeader {
+	background-color: #16366B;
+	color: #FFFFFF; /* equivalent to #fff or white */
+}
+tr.desc {
+	background-color: #DDDDDD;
+}
+td.course {
+	padding: 5px 0px 5px 10px;
+}
+td.descD {
+	padding: 5px 0px 5px 10px;
+}
+td.units {
+	text-align: center;
+}
