@@ -6,6 +6,8 @@ export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [Component.PortfolioHeader()],
   afterBody: [
+    // Scroll-to-top ribbon (all pages)
+    Component.ScrollRibbon(),
     // Homepage-only components
     Component.ConditionalRender({
       component: Component.Hero(),

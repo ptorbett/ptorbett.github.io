@@ -262,26 +262,46 @@ article {
   }
 }
 
-// Blockquotes as "Scout's Notes" - softer, more integrated
+// Blockquotes as "Scout's Notes" - with rope border accent
 blockquote {
   background: linear-gradient(
     135deg,
     rgba(230, 217, 188, 0.5) 0%,
     rgba(245, 237, 216, 0.3) 100%
   );
-  border: none;
-  border-left: 4px solid rgba(190, 38, 51, 0.6);
-  padding: 1rem 1.5rem;
+  border: 2px solid rgba(139, 115, 85, 0.3);
+  border-left: none;
+  padding: 1.25rem 1.5rem 1.25rem 1.75rem;
   margin: 1.5rem 0;
   position: relative;
   @include paper-shadow;
-  border-radius: 2px;
+  border-radius: 3px;
 
+  // Rope-style left border
   &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    background: repeating-linear-gradient(
+      180deg,
+      rgba(139, 90, 43, 0.7) 0px,
+      rgba(180, 130, 70, 0.7) 2px,
+      rgba(139, 90, 43, 0.7) 4px,
+      rgba(100, 65, 30, 0.7) 6px,
+      rgba(139, 90, 43, 0.7) 8px
+    );
+    border-radius: 3px 0 0 3px;
+  }
+
+  // Label
+  &::after {
     content: "SCOUT'S NOTE";
     position: absolute;
     top: -0.6rem;
-    left: 1rem;
+    left: 1.25rem;
     background: var(--light);
     padding: 0 0.5rem;
     font-size: 0.65rem;
@@ -359,18 +379,24 @@ a {
   }
 }
 
-// Horizontal rules as decorative dividers - faded
+// Horizontal rules as ornamental dividers - compass rose
 hr {
   border: none;
-  height: auto;
-  text-align: center;
-  margin: 2rem 0;
+  height: 2rem;
+  margin: 2.5rem 0;
+  position: relative;
+  background: none;
 
+  // Compass rose SVG centered
   &::before {
-    content: "◆ ◆ ◆";
-    color: var(--secondary);
-    letter-spacing: 1rem;
-    opacity: 0.5;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2rem;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 24' xmlns='http://www.w3.org/2000/svg'%3E%3C!-- Left line --%3E%3Cline x1='20' y1='12' x2='85' y2='12' stroke='%231B4D2E' stroke-width='1' opacity='0.4'/%3E%3C!-- Right line --%3E%3Cline x1='115' y1='12' x2='180' y2='12' stroke='%231B4D2E' stroke-width='1' opacity='0.4'/%3E%3C!-- Compass rose --%3E%3Ccircle cx='100' cy='12' r='8' fill='none' stroke='%231B4D2E' stroke-width='1' opacity='0.5'/%3E%3Cpath d='M100,4 L102,10 L100,8 L98,10 Z' fill='%231B4D2E' opacity='0.6'/%3E%3Cpath d='M100,20 L102,14 L100,16 L98,14 Z' fill='%231B4D2E' opacity='0.4'/%3E%3Cpath d='M92,12 L98,10 L96,12 L98,14 Z' fill='%231B4D2E' opacity='0.4'/%3E%3Cpath d='M108,12 L102,10 L104,12 L102,14 Z' fill='%231B4D2E' opacity='0.4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 200px 24px;
   }
 }
 
@@ -404,9 +430,69 @@ tr:nth-child(even) {
   background: rgba(230, 217, 188, 0.4);
 }
 
-// Badge-style tags
+// Merit badge-style tags
 .tags {
   margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    margin: 0;
+  }
+
+  a.internal.tag-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.6rem 0.3rem 0.5rem;
+    background: linear-gradient(
+      180deg,
+      rgba(27, 77, 46, 0.85) 0%,
+      rgba(27, 77, 46, 0.95) 100%
+    );
+    color: var(--light) !important;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    border: 2px solid rgba(27, 77, 46, 0.6);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+
+    // Badge circle icon
+    &::before {
+      content: "●";
+      font-size: 0.5rem;
+      margin-right: 0.35rem;
+      opacity: 0.7;
+    }
+
+    &:hover {
+      background: linear-gradient(
+        180deg,
+        rgba(190, 38, 51, 0.85) 0%,
+        rgba(190, 38, 51, 0.95) 100%
+      );
+      border-color: rgba(190, 38, 51, 0.6);
+      transform: translateY(-1px);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        0 2px 4px rgba(0, 0, 0, 0.15);
+    }
+  }
 }
 
 // Content meta styling
@@ -427,24 +513,89 @@ tr:nth-child(even) {
   }
 }
 
-// Breadcrumbs
+// Breadcrumbs - trail path style
 .breadcrumb-container {
-  margin-bottom: 1rem;
-  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  opacity: 0.7;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+
+  // Trail marker before breadcrumbs
+  &::before {
+    content: "⌂";
+    color: var(--secondary);
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+    opacity: 0.7;
+  }
+
+  .breadcrumb-element {
+    display: inline-flex;
+    align-items: center;
+
+    // Arrow path between items
+    &:not(:last-child)::after {
+      content: "›";
+      margin: 0 0.4rem;
+      color: var(--gray);
+      opacity: 0.5;
+    }
+  }
+
+  a {
+    color: var(--secondary);
+    text-decoration: none;
+    padding: 0.15rem 0.4rem;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: rgba(27, 77, 46, 0.1);
+    }
+  }
 }
 
-// Images with vintage frame - softer
+// Images with decorative photo corners
 article img {
-  border: 2px solid rgba(139, 115, 85, 0.5);
-  padding: 0.5rem;
-  background: rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(139, 115, 85, 0.4);
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.6);
   box-shadow:
     2px 2px 4px rgba(44, 24, 16, 0.1),
     inset 0 0 20px rgba(230, 217, 188, 0.5);
   border-radius: 2px;
+  position: relative;
+}
+
+// Photo corner decorations
+article p:has(> img) {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "◤";
+    position: absolute;
+    font-size: 1.25rem;
+    color: var(--secondary);
+    opacity: 0.35;
+    z-index: 1;
+  }
+
+  &::before {
+    top: 0.25rem;
+    left: 0.25rem;
+  }
+
+  &::after {
+    content: "◢";
+    bottom: 1.25rem;
+    right: 0.25rem;
+  }
 }
 
 // Footer styling - blends with page
@@ -647,9 +798,19 @@ article img {
   }
 
   .project-tag {
-    background: rgba(230, 217, 188, 0.6);
-    border: 1px solid rgba(139, 115, 85, 0.3);
-    opacity: 0.8;
+    background: linear-gradient(
+      180deg,
+      rgba(27, 77, 46, 0.75) 0%,
+      rgba(27, 77, 46, 0.85) 100%
+    );
+    color: var(--light);
+    border: 1px solid rgba(27, 77, 46, 0.5);
+    border-radius: 50px;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
   }
 }
 
@@ -681,19 +842,29 @@ article img {
   }
 }
 
-// Section titles
+// Section titles with fleur-de-lis underline
 .section-title {
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  border-bottom: 2px solid rgba(27, 77, 46, 0.5);
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
   @include faded-ink;
   opacity: 0.9;
+  position: relative;
 
-  &::before {
-    content: "§ ";
-    color: var(--tertiary);
-    opacity: 0.6;
+  // Fleur-de-lis underline SVG
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 150 12' xmlns='http://www.w3.org/2000/svg'%3E%3C!-- Left line --%3E%3Cline x1='0' y1='6' x2='55' y2='6' stroke='%231B4D2E' stroke-width='1.5' opacity='0.4'/%3E%3C!-- Right line --%3E%3Cline x1='95' y1='6' x2='150' y2='6' stroke='%231B4D2E' stroke-width='1.5' opacity='0.4'/%3E%3C!-- Fleur-de-lis --%3E%3Cpath d='M75,1 C75,1 73,4 73,6 C73,8 75,9 75,9 C75,9 77,8 77,6 C77,4 75,1 75,1 Z M70,4 C70,4 72,6 73,6 C72,7 70,8 70,8 C70,8 68,7 69,6 C70,5 70,4 70,4 Z M80,4 C80,4 78,6 77,6 C78,7 80,8 80,8 C80,8 82,7 81,6 C80,5 80,4 80,4 Z M73,9 L72,11 L75,10 L78,11 L77,9' fill='%231B4D2E' opacity='0.5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 150px 12px;
   }
 }
 

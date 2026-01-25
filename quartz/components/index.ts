@@ -31,6 +31,7 @@ import FeaturedProjects from "./FeaturedProjects"
 import RecentWriting from "./RecentWriting"
 import AboutSection from "./AboutSection"
 import ContactCTA from "./ContactCTA"
+import ScrollRibbon from "./ScrollRibbon"
 
 export {
   ArticleTitle,
@@ -66,4 +67,5 @@ export {
   RecentWriting,
   AboutSection,
   ContactCTA,
+  ScrollRibbon,
 }
