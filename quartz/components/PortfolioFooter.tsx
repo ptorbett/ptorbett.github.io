@@ -24,7 +24,7 @@ PortfolioFooter.css = `
 .portfolio-footer {
   margin-top: 4rem;
   padding: 2rem 0;
-  border-top: 1px solid var(--lightgray);
+  border-top: none;
 }
 
 .footer-content {

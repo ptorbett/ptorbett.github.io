@@ -28,8 +28,8 @@ PortfolioHeader.css = `
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--light);
-  border-bottom: 1px solid var(--lightgray);
+  background: transparent;
+  border-bottom: none;
   padding: 1rem 0;
   margin-bottom: 2rem;
 }

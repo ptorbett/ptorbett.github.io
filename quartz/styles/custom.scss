@@ -406,16 +406,31 @@ article img {
 
 // Footer styling - blends with page
 .portfolio-footer {
-  border-top: 2px solid rgba(27, 77, 46, 0.4);
+  border: none;
   margin-top: 3rem;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(230, 217, 188, 0.3) 100%
-  );
-  padding-top: 0.5rem;
+  background: transparent;
+  padding-top: 1.5rem;
+  position: relative;
 
+  // Soft top border that fades at edges
   &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(27, 77, 46, 0.3) 20%,
+      rgba(27, 77, 46, 0.4) 50%,
+      rgba(27, 77, 46, 0.3) 80%,
+      transparent 100%
+    );
+  }
+
+  &::after {
     content: "BE PREPARED";
     display: block;
     text-align: center;
@@ -424,7 +439,6 @@ article img {
     color: var(--secondary);
     letter-spacing: 0.2em;
     margin-bottom: 1rem;
-    padding-top: 1rem;
     opacity: 0.6;
   }
 
@@ -435,13 +449,28 @@ article img {
 
 // Header styling - gradual blend
 .portfolio-header {
-  border-bottom: 2px solid rgba(27, 77, 46, 0.4);
-  background: linear-gradient(
-    180deg,
-    rgba(230, 217, 188, 0.4) 0%,
-    transparent 100%
-  );
-  box-shadow: 0 2px 8px rgba(44, 24, 16, 0.05);
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  position: relative;
+
+  // Soft bottom border that fades at edges
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(27, 77, 46, 0.3) 20%,
+      rgba(27, 77, 46, 0.4) 50%,
+      rgba(27, 77, 46, 0.3) 80%,
+      transparent 100%
+    );
+  }
 
   .site-title {
     text-transform: uppercase;
