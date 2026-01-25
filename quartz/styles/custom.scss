@@ -750,7 +750,7 @@ article img {
   }
 }
 
-// Page aging effect - stronger at margins, fades toward center
+// Page aging effect - fades on all four edges
 .page::before {
   content: "";
   position: fixed;
@@ -760,25 +760,35 @@ article img {
   bottom: 0;
   pointer-events: none;
   background:
-    // Vignette darkening at edges
+    // Vignette darkening at all edges
     radial-gradient(
-      ellipse 80% 80% at 50% 50%,
-      transparent 40%,
-      rgba(139, 115, 85, 0.06) 70%,
+      ellipse 75% 70% at 50% 50%,
+      transparent 35%,
+      rgba(139, 115, 85, 0.06) 65%,
       rgba(139, 115, 85, 0.12) 100%
     ),
-    // Extra texture emphasis on left/right margins
+    // Top edge fade
+    linear-gradient(
+      180deg,
+      rgba(139, 115, 85, 0.08) 0%,
+      rgba(139, 115, 85, 0.03) 5%,
+      transparent 12%,
+      transparent 88%,
+      rgba(139, 115, 85, 0.03) 95%,
+      rgba(139, 115, 85, 0.08) 100%
+    ),
+    // Left/right edge fade
     linear-gradient(
       90deg,
       rgba(139, 115, 85, 0.05) 0%,
-      transparent 15%,
-      transparent 85%,
+      transparent 12%,
+      transparent 88%,
       rgba(139, 115, 85, 0.05) 100%
     );
   z-index: 1000;
 }
 
-// Additional vertical margin texture strips
+// Additional texture enhancement on all margins
 .page::after {
   content: "";
   position: fixed;
@@ -788,15 +798,25 @@ article img {
   bottom: 0;
   pointer-events: none;
   background:
-    // Left margin texture enhancement
+    // Left/right margin texture
     linear-gradient(
       90deg,
       rgba(200, 180, 150, 0.08) 0%,
-      rgba(200, 180, 150, 0.03) 8%,
-      transparent 18%,
-      transparent 82%,
-      rgba(200, 180, 150, 0.03) 92%,
+      rgba(200, 180, 150, 0.03) 6%,
+      transparent 15%,
+      transparent 85%,
+      rgba(200, 180, 150, 0.03) 94%,
       rgba(200, 180, 150, 0.08) 100%
+    ),
+    // Top/bottom margin texture
+    linear-gradient(
+      180deg,
+      rgba(200, 180, 150, 0.06) 0%,
+      rgba(200, 180, 150, 0.02) 4%,
+      transparent 10%,
+      transparent 90%,
+      rgba(200, 180, 150, 0.02) 96%,
+      rgba(200, 180, 150, 0.06) 100%
     );
   z-index: 999;
 }
