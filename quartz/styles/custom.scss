@@ -94,12 +94,43 @@ body {
     & .center {
       max-width: 700px;
       margin: 0 auto;
+      position: relative;
+
+      // Fade out paper texture in reading area with feathered edges
+      &::before {
+        content: "";
+        position: absolute;
+        top: -2rem;
+        bottom: -2rem;
+        left: -4rem;
+        right: -4rem;
+        background: radial-gradient(
+          ellipse 70% 100% at 50% 50%,
+          var(--light) 0%,
+          var(--light) 40%,
+          transparent 70%
+        );
+        pointer-events: none;
+        z-index: -1;
+      }
     }
   }
 
   &:has(.hero) > #quartz-body {
     & .center {
       max-width: 100%;
+
+      // Wider fade for homepage
+      &::before {
+        left: -2rem;
+        right: -2rem;
+        background: radial-gradient(
+          ellipse 85% 100% at 50% 50%,
+          var(--light) 0%,
+          var(--light) 50%,
+          transparent 75%
+        );
+      }
     }
   }
 }
@@ -690,7 +721,7 @@ article img {
   }
 }
 
-// Subtle page aging effect at edges
+// Page aging effect - stronger at margins, fades toward center
 .page::before {
   content: "";
   position: fixed;
@@ -699,12 +730,46 @@ article img {
   right: 0;
   bottom: 0;
   pointer-events: none;
-  background: radial-gradient(
-    ellipse at center,
-    transparent 60%,
-    rgba(139, 115, 85, 0.08) 100%
-  );
+  background:
+    // Vignette darkening at edges
+    radial-gradient(
+      ellipse 80% 80% at 50% 50%,
+      transparent 40%,
+      rgba(139, 115, 85, 0.06) 70%,
+      rgba(139, 115, 85, 0.12) 100%
+    ),
+    // Extra texture emphasis on left/right margins
+    linear-gradient(
+      90deg,
+      rgba(139, 115, 85, 0.05) 0%,
+      transparent 15%,
+      transparent 85%,
+      rgba(139, 115, 85, 0.05) 100%
+    );
   z-index: 1000;
+}
+
+// Additional vertical margin texture strips
+.page::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background:
+    // Left margin texture enhancement
+    linear-gradient(
+      90deg,
+      rgba(200, 180, 150, 0.08) 0%,
+      rgba(200, 180, 150, 0.03) 8%,
+      transparent 18%,
+      transparent 82%,
+      rgba(200, 180, 150, 0.03) 92%,
+      rgba(200, 180, 150, 0.08) 100%
+    );
+  z-index: 999;
 }
 
 // No jarring animations for this vintage style
