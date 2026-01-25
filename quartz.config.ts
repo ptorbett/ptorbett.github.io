@@ -21,32 +21,32 @@ const config: QuartzConfig = {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Space Grotesk",
-        body: "Inter",
-        code: "JetBrains Mono",
+        header: "Bitter",
+        body: "Source Serif 4",
+        code: "Courier Prime",
       },
       colors: {
         lightMode: {
-          light: "#FAFAF9",
-          lightgray: "#E7E5E4",
-          gray: "#78716C",
-          darkgray: "#57534E",
-          dark: "#1C1917",
-          secondary: "#57534E",
-          tertiary: "#78716C",
-          highlight: "rgba(120, 113, 108, 0.1)",
-          textHighlight: "#FEF3C7",
+          light: "#F5EDD8",           // Aged paper
+          lightgray: "#E6D9BC",       // Tan/khaki
+          gray: "#8B7355",            // Warm brown
+          darkgray: "#5C4033",        // Medium brown
+          dark: "#2C1810",            // Dark brown
+          secondary: "#1B4D2E",       // Forest green
+          tertiary: "#BE2633",        // Scout red
+          highlight: "rgba(27, 77, 46, 0.12)",
+          textHighlight: "#F5D77A",   // Gold highlight
         },
         darkMode: {
-          light: "#1C1917",
-          lightgray: "#292524",
-          gray: "#78716C",
-          darkgray: "#D6D3D1",
-          dark: "#FAFAF9",
-          secondary: "#A8A29E",
-          tertiary: "#78716C",
-          highlight: "rgba(120, 113, 108, 0.15)",
-          textHighlight: "#78350F",
+          light: "#2C2416",           // Dark paper
+          lightgray: "#3D3225",       // Dark tan
+          gray: "#8B7355",            // Warm brown
+          darkgray: "#D4C4A8",        // Light tan
+          dark: "#F5EDD8",            // Cream
+          secondary: "#6B9E78",       // Muted green
+          tertiary: "#D4574A",        // Muted red
+          highlight: "rgba(107, 158, 120, 0.15)",
+          textHighlight: "#5C4033",
         },
       },
     },
