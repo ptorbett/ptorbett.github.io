@@ -23,6 +23,14 @@ import Breadcrumbs from "./Breadcrumbs"
 import Comments from "./Comments"
 import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
+import PortfolioHeader from "./PortfolioHeader"
+import PortfolioFooter from "./PortfolioFooter"
+import Hero from "./Hero"
+import QuickSignals from "./QuickSignals"
+import FeaturedProjects from "./FeaturedProjects"
+import RecentWriting from "./RecentWriting"
+import AboutSection from "./AboutSection"
+import ContactCTA from "./ContactCTA"
 
 export {
   ArticleTitle,
@@ -50,4 +58,12 @@ export {
   Comments,
   Flex,
   ConditionalRender,
+  PortfolioHeader,
+  PortfolioFooter,
+  Hero,
+  QuickSignals,
+  FeaturedProjects,
+  RecentWriting,
+  AboutSection,
+  ContactCTA,
 }

@@ -1,3 +1,197 @@
 @use "./base.scss";
 
-// put your custom CSS here!
+// Portfolio-specific custom styles
+
+// Single-column layout adjustments
+.page {
+  max-width: 1000px;
+
+  & > #quartz-body {
+    display: block;
+    padding: 0 1.5rem;
+
+    & .sidebar.left,
+    & .sidebar.right {
+      display: none;
+    }
+
+    & .center {
+      max-width: 750px;
+      margin: 0 auto;
+    }
+  }
+
+  // Homepage uses full width
+  &:has(.hero) > #quartz-body {
+    & .center {
+      max-width: 100%;
+    }
+  }
+}
+
+// Article styling
+article {
+  padding-bottom: 2rem;
+
+  & > h1 {
+    font-size: 2.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  & p {
+    line-height: 1.8;
+  }
+}
+
+// Content meta styling
+.content-meta {
+  color: var(--gray);
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+// Tag list styling
+.tags {
+  margin-bottom: 2rem;
+}
+
+// Breadcrumbs styling
+.breadcrumb-container {
+  margin-bottom: 1rem;
+
+  .breadcrumb-element {
+    color: var(--gray);
+    font-size: 0.9rem;
+  }
+}
+
+// Table of contents (when shown on right side)
+.toc {
+  position: fixed;
+  right: 2rem;
+  top: 6rem;
+  max-width: 250px;
+  max-height: calc(100vh - 8rem);
+  overflow-y: auto;
+
+  @media (max-width: 1200px) {
+    display: none;
+  }
+}
+
+// Fade-in animation
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero,
+  .quick-signals,
+  .featured-projects,
+  .recent-writing,
+  .about-section,
+  .contact-cta {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  .quick-signals {
+    animation-delay: 0.1s;
+    animation-fill-mode: both;
+  }
+
+  .featured-projects {
+    animation-delay: 0.2s;
+    animation-fill-mode: both;
+  }
+
+  .recent-writing {
+    animation-delay: 0.3s;
+    animation-fill-mode: both;
+  }
+
+  .about-section {
+    animation-delay: 0.4s;
+    animation-fill-mode: both;
+  }
+
+  .contact-cta {
+    animation-delay: 0.5s;
+    animation-fill-mode: both;
+  }
+}
+
+// Improved link styling
+a {
+  &.internal {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    text-decoration: underline;
+    text-decoration-color: var(--lightgray);
+    text-underline-offset: 2px;
+
+    &:hover {
+      text-decoration-color: var(--secondary);
+    }
+  }
+}
+
+// Better code blocks
+pre {
+  background: var(--lightgray);
+  border: none;
+}
+
+// Folder and tag pages
+.folder-page,
+.tag-page {
+  .page-listing {
+    margin-top: 1rem;
+  }
+
+  .section-li {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--lightgray);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+// Projects listing page styles
+.project-listing {
+  .project-item {
+    display: block;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    background: var(--light);
+    border: 1px solid var(--lightgray);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: var(--gray);
+    }
+  }
+}
+
+// Mobile responsive refinements
+@media (max-width: 600px) {
+  .page > #quartz-body {
+    padding: 0 1rem;
+  }
+
+  article > h1 {
+    font-size: 1.75rem;
+  }
+}
