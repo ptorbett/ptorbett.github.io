@@ -1,17 +1,81 @@
 @use "./base.scss";
 
 // Scout Manual Theme - Vintage 1990s/2000s Boy Scout Handbook Style
+// With paper texture and faded ink skeuomorphism
 
-// Page wrapper with aged paper texture
-body {
+// Paper texture mixin
+@mixin paper-texture {
+  background-color: var(--light);
   background-image:
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 50px,
-      rgba(139, 115, 85, 0.03) 50px,
-      rgba(139, 115, 85, 0.03) 51px
+    // Subtle fiber/grain texture
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"),
+    // Slight color variation
+    linear-gradient(
+      180deg,
+      rgba(245, 237, 216, 0) 0%,
+      rgba(230, 217, 188, 0.3) 50%,
+      rgba(245, 237, 216, 0) 100%
     );
+  background-blend-mode: overlay, normal;
+}
+
+// Faded ink text effect
+@mixin faded-ink {
+  color: var(--dark);
+  text-shadow:
+    0 0 1px rgba(44, 24, 16, 0.1),
+    0 0 0.5px rgba(44, 24, 16, 0.05);
+  // Slightly soften the text edges
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin faded-ink-light {
+  text-shadow:
+    0 0 1px rgba(44, 24, 16, 0.08),
+    0 0 0.5px rgba(44, 24, 16, 0.03);
+}
+
+// Soft shadow for elements (like printed on textured paper)
+@mixin paper-shadow {
+  box-shadow:
+    0 1px 2px rgba(44, 24, 16, 0.08),
+    0 2px 4px rgba(44, 24, 16, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+@mixin paper-shadow-hover {
+  box-shadow:
+    0 2px 4px rgba(44, 24, 16, 0.1),
+    0 4px 8px rgba(44, 24, 16, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+// Worn edge effect for borders
+@mixin worn-border($color, $width: 2px) {
+  border: $width solid $color;
+  border-image: repeating-linear-gradient(
+    90deg,
+    $color 0px,
+    $color 4px,
+    transparent 4px,
+    transparent 5px,
+    $color 5px
+  ) 1;
+  // Fallback for browsers that don't support border-image well
+  @supports not (border-image: none) {
+    border: $width solid $color;
+  }
+}
+
+// Page background with full paper texture
+html {
+  @include paper-texture;
+}
+
+body {
+  background: transparent;
+  @include faded-ink;
 }
 
 // Single-column layout adjustments
@@ -40,11 +104,12 @@ body {
   }
 }
 
-// Classic manual-style headings
+// Classic manual-style headings with faded ink
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  @include faded-ink;
 }
 
 h1 {
@@ -52,27 +117,32 @@ h1 {
   border-bottom: 3px double var(--secondary);
   padding-bottom: 0.5rem;
   margin-bottom: 1.5rem;
+  opacity: 0.92;
 }
 
 h2 {
   font-size: 1.35rem;
-  border-bottom: 2px solid var(--secondary);
+  border-bottom: 2px solid rgba(27, 77, 46, 0.7);
   padding-bottom: 0.35rem;
   margin-top: 2.5rem;
+  opacity: 0.9;
 
   &::before {
     content: "■ ";
     color: var(--tertiary);
+    opacity: 0.75;
   }
 }
 
 h3 {
   font-size: 1.1rem;
   color: var(--secondary);
+  opacity: 0.88;
 
   &::before {
     content: "● ";
     color: var(--tertiary);
+    opacity: 0.7;
   }
 }
 
@@ -83,16 +153,19 @@ article {
   & > h1 {
     font-size: 2rem;
     text-align: center;
-    border-bottom: 4px double var(--secondary);
+    border-bottom: 4px double rgba(27, 77, 46, 0.75);
+    opacity: 0.95;
 
     &::before {
       content: "★ ";
       color: var(--tertiary);
+      opacity: 0.7;
     }
 
     &::after {
       content: " ★";
       color: var(--tertiary);
+      opacity: 0.7;
     }
   }
 
@@ -100,6 +173,8 @@ article {
     line-height: 1.9;
     text-align: justify;
     hyphens: auto;
+    @include faded-ink-light;
+    opacity: 0.88;
   }
 
   & ul, & ol {
@@ -109,70 +184,98 @@ article {
   & li {
     margin-bottom: 0.5rem;
     line-height: 1.7;
+    opacity: 0.88;
   }
 }
 
-// Blockquotes as "Scout's Notes"
+// Blockquotes as "Scout's Notes" - softer, more integrated
 blockquote {
-  background: linear-gradient(135deg, var(--lightgray) 0%, var(--light) 100%);
-  border: 2px solid var(--secondary);
-  border-left: 6px solid var(--tertiary);
+  background: linear-gradient(
+    135deg,
+    rgba(230, 217, 188, 0.5) 0%,
+    rgba(245, 237, 216, 0.3) 100%
+  );
+  border: none;
+  border-left: 4px solid rgba(190, 38, 51, 0.6);
   padding: 1rem 1.5rem;
   margin: 1.5rem 0;
   position: relative;
+  @include paper-shadow;
+  border-radius: 2px;
 
   &::before {
     content: "SCOUT'S NOTE";
     position: absolute;
-    top: -0.75rem;
+    top: -0.6rem;
     left: 1rem;
     background: var(--light);
     padding: 0 0.5rem;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 700;
     color: var(--tertiary);
     letter-spacing: 0.1em;
+    opacity: 0.75;
+  }
+
+  & p {
+    opacity: 0.85;
   }
 }
 
-// Code blocks as "Field Notes"
+// Code blocks as "Field Notes" - weathered look
 pre {
-  background: var(--lightgray) !important;
-  border: 2px solid var(--gray);
-  border-radius: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(230, 217, 188, 0.6) 0%,
+    rgba(230, 217, 188, 0.4) 100%
+  ) !important;
+  border: 1px solid rgba(139, 115, 85, 0.4);
+  border-radius: 2px;
   position: relative;
+  @include paper-shadow;
 
   &::before {
     content: "FIELD NOTES";
     position: absolute;
-    top: -0.75rem;
+    top: -0.6rem;
     right: 1rem;
-    background: var(--lightgray);
+    background: var(--light);
     padding: 0 0.5rem;
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     font-weight: 700;
     color: var(--gray);
     letter-spacing: 0.1em;
+    opacity: 0.7;
+  }
+
+  & code {
+    opacity: 0.85;
   }
 }
 
 code {
   font-family: var(--codeFont);
-  background: var(--lightgray);
-  border: 1px solid var(--gray);
-  border-radius: 0;
+  background: rgba(230, 217, 188, 0.5);
+  border: 1px solid rgba(139, 115, 85, 0.3);
+  border-radius: 2px;
+  opacity: 0.9;
 }
 
-// Links styled like manual references
+// Links styled like manual references - faded ink look
 a {
   color: var(--secondary);
   text-decoration: underline;
   text-decoration-style: dotted;
+  text-decoration-color: rgba(27, 77, 46, 0.5);
   text-underline-offset: 3px;
+  opacity: 0.9;
+  transition: all 0.2s ease;
 
   &:hover {
     color: var(--tertiary);
     text-decoration-style: solid;
+    text-decoration-color: rgba(190, 38, 51, 0.7);
+    opacity: 1;
   }
 
   &.internal {
@@ -182,7 +285,7 @@ a {
   }
 }
 
-// Horizontal rules as decorative dividers
+// Horizontal rules as decorative dividers - faded
 hr {
   border: none;
   height: auto;
@@ -193,30 +296,38 @@ hr {
     content: "◆ ◆ ◆";
     color: var(--secondary);
     letter-spacing: 1rem;
+    opacity: 0.5;
   }
 }
 
 // Tables styled like manual reference charts
 table {
-  border: 3px double var(--secondary);
-  background: var(--light);
+  border: 2px solid rgba(27, 77, 46, 0.6);
+  background: rgba(245, 237, 216, 0.5);
+  @include paper-shadow;
+  border-radius: 2px;
 }
 
 th {
-  background: var(--secondary);
+  background: linear-gradient(
+    180deg,
+    rgba(27, 77, 46, 0.85) 0%,
+    rgba(27, 77, 46, 0.75) 100%
+  );
   color: var(--light);
   text-transform: uppercase;
   font-size: 0.85rem;
   letter-spacing: 0.05em;
   border-bottom: none;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 td {
-  border: 1px solid var(--gray);
+  border: 1px solid rgba(139, 115, 85, 0.3);
 }
 
 tr:nth-child(even) {
-  background: var(--lightgray);
+  background: rgba(230, 217, 188, 0.4);
 }
 
 // Badge-style tags
@@ -231,6 +342,7 @@ tr:nth-child(even) {
   margin-bottom: 2rem;
   font-style: italic;
   text-align: center;
+  opacity: 0.7;
 
   &::before {
     content: "— ";
@@ -247,43 +359,65 @@ tr:nth-child(even) {
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  opacity: 0.7;
 }
 
-// Images with vintage frame
+// Images with vintage frame - softer
 article img {
-  border: 3px solid var(--gray);
+  border: 2px solid rgba(139, 115, 85, 0.5);
   padding: 0.5rem;
-  background: var(--light);
-  box-shadow: 4px 4px 0 var(--lightgray);
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow:
+    2px 2px 4px rgba(44, 24, 16, 0.1),
+    inset 0 0 20px rgba(230, 217, 188, 0.5);
+  border-radius: 2px;
 }
 
-// Footer styling
+// Footer styling - blends with page
 .portfolio-footer {
-  border-top: 3px double var(--secondary);
+  border-top: 2px solid rgba(27, 77, 46, 0.4);
   margin-top: 3rem;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(230, 217, 188, 0.3) 100%
+  );
+  padding-top: 0.5rem;
 
   &::before {
     content: "BE PREPARED";
     display: block;
     text-align: center;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 700;
     color: var(--secondary);
     letter-spacing: 0.2em;
     margin-bottom: 1rem;
     padding-top: 1rem;
+    opacity: 0.6;
+  }
+
+  .footer-content {
+    opacity: 0.8;
   }
 }
 
-// Header styling
+// Header styling - gradual blend
 .portfolio-header {
-  border-bottom: 3px double var(--secondary);
-  background: linear-gradient(180deg, var(--light) 0%, var(--lightgray) 100%);
+  border-bottom: 2px solid rgba(27, 77, 46, 0.4);
+  background: linear-gradient(
+    180deg,
+    rgba(230, 217, 188, 0.4) 0%,
+    transparent 100%
+  );
+  box-shadow: 0 2px 8px rgba(44, 24, 16, 0.05);
 
   .site-title {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     font-weight: 700;
+    @include faded-ink;
+    opacity: 0.9;
   }
 
   .nav-link {
@@ -291,30 +425,46 @@ article img {
     font-size: 0.8rem;
     letter-spacing: 0.05em;
     font-weight: 600;
+    opacity: 0.8;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 
-// Hero section scout style
+// Hero section scout style - integrated with page
 .hero {
   text-align: center;
   padding: 3rem 1rem;
-  border: 4px double var(--secondary);
-  background: linear-gradient(180deg, var(--lightgray) 0%, var(--light) 50%, var(--lightgray) 100%);
+  border: 2px solid rgba(27, 77, 46, 0.5);
+  background: linear-gradient(
+    180deg,
+    rgba(230, 217, 188, 0.4) 0%,
+    rgba(245, 237, 216, 0.2) 50%,
+    rgba(230, 217, 188, 0.4) 100%
+  );
   margin-bottom: 2rem;
+  @include paper-shadow;
+  border-radius: 3px;
 }
 
 .hero-title {
   text-transform: uppercase;
   letter-spacing: 0.15em;
+  @include faded-ink;
+  opacity: 0.95;
 
   &::before {
     content: "⚜ ";
     color: var(--tertiary);
+    opacity: 0.65;
   }
 
   &::after {
     content: " ⚜";
     color: var(--tertiary);
+    opacity: 0.65;
   }
 }
 
@@ -324,55 +474,113 @@ article img {
   font-size: 1rem !important;
   color: var(--secondary) !important;
   font-weight: 700;
+  opacity: 0.8;
 }
 
-// Quick signals as merit badge-style boxes
+.hero-tagline {
+  opacity: 0.85;
+}
+
+// Quick signals as merit badge-style boxes - softer
 .quick-signals {
-  border: 3px solid var(--secondary);
-  background: var(--light);
+  border: 1px solid rgba(27, 77, 46, 0.4);
+  background: linear-gradient(
+    180deg,
+    rgba(245, 237, 216, 0.3) 0%,
+    rgba(230, 217, 188, 0.2) 100%
+  );
   padding: 1.5rem;
+  @include paper-shadow;
+  border-radius: 3px;
 }
 
 .signal-card {
-  border: 2px solid var(--gray);
+  border: 1px solid rgba(139, 115, 85, 0.4);
   padding: 1rem;
-  background: var(--lightgray);
+  background: rgba(245, 237, 216, 0.4);
+  @include paper-shadow;
+  border-radius: 2px;
 
   .signal-title {
     color: var(--secondary);
-    border-bottom: 1px solid var(--secondary);
+    border-bottom: 1px solid rgba(27, 77, 46, 0.4);
     padding-bottom: 0.5rem;
     margin-bottom: 0.75rem;
+    opacity: 0.85;
+  }
+
+  .signal-content {
+    opacity: 0.8;
   }
 }
 
-// Project cards as handbook sections
+// Project cards as handbook sections - weathered paper look
 .project-card {
-  border: 2px solid var(--secondary) !important;
-  border-radius: 0 !important;
-  background: var(--light) !important;
+  border: 1px solid rgba(27, 77, 46, 0.4) !important;
+  border-radius: 3px !important;
+  background: linear-gradient(
+    135deg,
+    rgba(245, 237, 216, 0.5) 0%,
+    rgba(230, 217, 188, 0.3) 100%
+  ) !important;
+  @include paper-shadow;
+  transition: all 0.2s ease;
 
   &:hover {
-    box-shadow: 4px 4px 0 var(--secondary) !important;
-    transform: translate(-2px, -2px);
+    @include paper-shadow-hover;
+    transform: translate(-1px, -1px);
+    border-color: rgba(27, 77, 46, 0.6) !important;
   }
 
   .project-title {
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    border-bottom: 2px solid var(--tertiary);
+    border-bottom: 1px solid rgba(190, 38, 51, 0.5);
     padding-bottom: 0.5rem;
+    @include faded-ink;
+    opacity: 0.9;
+  }
+
+  .detail-label {
+    opacity: 0.7;
+  }
+
+  .detail-text {
+    opacity: 0.85;
+  }
+
+  .project-tag {
+    background: rgba(230, 217, 188, 0.6);
+    border: 1px solid rgba(139, 115, 85, 0.3);
+    opacity: 0.8;
   }
 }
 
-// Writing items
+// Writing items - gentler styling
 .writing-item {
-  border: 2px solid var(--gray) !important;
-  border-radius: 0 !important;
-  border-left: 5px solid var(--secondary) !important;
+  border: 1px solid rgba(139, 115, 85, 0.4) !important;
+  border-radius: 3px !important;
+  border-left: 3px solid rgba(27, 77, 46, 0.6) !important;
+  background: rgba(245, 237, 216, 0.3) !important;
+  @include paper-shadow;
+  transition: all 0.2s ease;
 
   &:hover {
-    border-left-color: var(--tertiary) !important;
+    border-left-color: rgba(190, 38, 51, 0.7) !important;
+    @include paper-shadow-hover;
+  }
+
+  .writing-title {
+    @include faded-ink;
+    opacity: 0.9;
+  }
+
+  .writing-date {
+    opacity: 0.6;
+  }
+
+  .writing-description {
+    opacity: 0.8;
   }
 }
 
@@ -380,70 +588,126 @@ article img {
 .section-title {
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  border-bottom: 3px double var(--secondary);
+  border-bottom: 2px solid rgba(27, 77, 46, 0.5);
   padding-bottom: 0.5rem;
+  @include faded-ink;
+  opacity: 0.9;
 
   &::before {
     content: "§ ";
     color: var(--tertiary);
+    opacity: 0.6;
   }
 }
 
-// Contact section
+// Contact section - integrated look
 .contact-cta {
-  border: 4px double var(--secondary);
-  background: var(--lightgray);
+  border: 2px solid rgba(27, 77, 46, 0.4);
+  background: linear-gradient(
+    180deg,
+    rgba(230, 217, 188, 0.4) 0%,
+    rgba(245, 237, 216, 0.2) 100%
+  );
   padding: 2rem;
+  @include paper-shadow;
+  border-radius: 3px;
 
   .contact-title {
     text-transform: uppercase;
     letter-spacing: 0.15em;
+    @include faded-ink;
+    opacity: 0.9;
+  }
+
+  .contact-text {
+    opacity: 0.8;
   }
 
   .contact-link {
-    border: 2px solid var(--secondary);
-    border-radius: 0;
-    background: var(--light);
+    border: 1px solid rgba(27, 77, 46, 0.5);
+    border-radius: 3px;
+    background: rgba(245, 237, 216, 0.5);
+    @include paper-shadow;
+    opacity: 0.9;
+    transition: all 0.2s ease;
 
     &:hover {
-      background: var(--secondary);
+      background: rgba(27, 77, 46, 0.85);
+      @include paper-shadow-hover;
+      opacity: 1;
     }
   }
 }
 
 // About section
 .about-section {
-  border-top: 3px double var(--secondary);
+  border-top: 2px solid rgba(27, 77, 46, 0.4);
+  padding-top: 2rem;
+  background: linear-gradient(
+    180deg,
+    rgba(230, 217, 188, 0.2) 0%,
+    transparent 100%
+  );
 }
 
-// CTA buttons
+// CTA buttons - softened
 .cta-primary {
-  background: var(--secondary) !important;
-  border: 2px solid var(--dark) !important;
-  border-radius: 0 !important;
+  background: linear-gradient(
+    180deg,
+    rgba(27, 77, 46, 0.9) 0%,
+    rgba(27, 77, 46, 0.8) 100%
+  ) !important;
+  border: 1px solid rgba(27, 77, 46, 0.6) !important;
+  border-radius: 3px !important;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-weight: 700;
+  @include paper-shadow;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 
   &:hover {
-    background: var(--tertiary) !important;
+    background: linear-gradient(
+      180deg,
+      rgba(190, 38, 51, 0.9) 0%,
+      rgba(190, 38, 51, 0.8) 100%
+    ) !important;
+    @include paper-shadow-hover;
   }
 }
 
 .cta-secondary {
-  background: var(--light) !important;
-  border: 2px solid var(--secondary) !important;
-  border-radius: 0 !important;
+  background: rgba(245, 237, 216, 0.6) !important;
+  border: 1px solid rgba(27, 77, 46, 0.5) !important;
+  border-radius: 3px !important;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-weight: 700;
+  @include paper-shadow;
 
   &:hover {
-    background: var(--lightgray) !important;
+    background: rgba(230, 217, 188, 0.8) !important;
+    @include paper-shadow-hover;
   }
 }
 
-// No animations for this vintage style
+// Subtle page aging effect at edges
+.page::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 60%,
+    rgba(139, 115, 85, 0.08) 100%
+  );
+  z-index: 1000;
+}
+
+// No jarring animations for this vintage style
 @media (prefers-reduced-motion: no-preference) {
   .hero,
   .quick-signals,
