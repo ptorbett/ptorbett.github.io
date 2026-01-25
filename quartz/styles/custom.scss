@@ -102,13 +102,13 @@ body {
         position: absolute;
         top: -2rem;
         bottom: -2rem;
-        left: -4rem;
-        right: -4rem;
+        left: -3rem;
+        right: -3rem;
         background: radial-gradient(
-          ellipse 70% 100% at 50% 50%,
+          ellipse 65% 100% at 50% 50%,
           var(--light) 0%,
-          var(--light) 40%,
-          transparent 70%
+          var(--light) 60%,
+          transparent 85%
         );
         pointer-events: none;
         z-index: -1;
@@ -125,10 +125,10 @@ body {
         left: -2rem;
         right: -2rem;
         background: radial-gradient(
-          ellipse 85% 100% at 50% 50%,
+          ellipse 80% 100% at 50% 50%,
           var(--light) 0%,
-          var(--light) 50%,
-          transparent 75%
+          var(--light) 65%,
+          transparent 88%
         );
       }
     }
