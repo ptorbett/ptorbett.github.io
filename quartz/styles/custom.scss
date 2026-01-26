@@ -1028,6 +1028,13 @@ article p:has(> img) {
         margin: 0;
         font-size: 1.1rem;
       }
+
+      .item-description {
+        margin: 0.3rem 0 0;
+        font-size: 0.9rem;
+        color: var(--darkgray);
+        line-height: 1.5;
+      }
     }
 
     .tags {
