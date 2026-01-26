@@ -708,12 +708,6 @@ article p:has(> img) {
   letter-spacing: 0.15em;
   @include faded-ink;
   opacity: 0.95;
-
-  &::before {
-    content: "⚜ ";
-    color: var(--tertiary);
-    opacity: 0.65;
-  }
 }
 
 .hero-role {
@@ -842,30 +836,15 @@ article p:has(> img) {
   }
 }
 
-// Section titles with fleur-de-lis underline
+// Section titles
 .section-title {
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
   margin-bottom: 1.5rem;
   @include faded-ink;
   opacity: 0.9;
-  position: relative;
-
-  // Fleur-de-lis underline SVG
-  &::after {
-    content: "";
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 12px;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 150 12' xmlns='http://www.w3.org/2000/svg'%3E%3C!-- Left line --%3E%3Cline x1='0' y1='6' x2='55' y2='6' stroke='%231B4D2E' stroke-width='1.5' opacity='0.4'/%3E%3C!-- Right line --%3E%3Cline x1='95' y1='6' x2='150' y2='6' stroke='%231B4D2E' stroke-width='1.5' opacity='0.4'/%3E%3C!-- Fleur-de-lis --%3E%3Cpath d='M75,1 C75,1 73,4 73,6 C73,8 75,9 75,9 C75,9 77,8 77,6 C77,4 75,1 75,1 Z M70,4 C70,4 72,6 73,6 C72,7 70,8 70,8 C70,8 68,7 69,6 C70,5 70,4 70,4 Z M80,4 C80,4 78,6 77,6 C78,7 80,8 80,8 C80,8 82,7 81,6 C80,5 80,4 80,4 Z M73,9 L72,11 L75,10 L78,11 L77,9' fill='%231B4D2E' opacity='0.5'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: left center;
-    background-size: 150px 12px;
-  }
+  border-bottom: 2px solid rgba(27, 77, 46, 0.4);
 }
 
 // Contact section - integrated look
