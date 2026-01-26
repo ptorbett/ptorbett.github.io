@@ -10,9 +10,9 @@ const Hero: QuartzComponent = ({ fileData, cfg }: QuartzComponentProps) => {
     <section class="hero">
       <div class="hero-content">
         <h1 class="hero-title">{title}</h1>
-        <p class="hero-role">Software Engineer</p>
+        <p class="hero-role">Staff Software Engineer</p>
         <p class="hero-tagline">
-          I build reliable, scalable systems and enjoy solving complex technical challenges.
+          I build backend systems and help engineers grow through mentorship and clear communication.
         </p>
         <div class="hero-ctas">
           <a href={`${base}experience`} class="cta-primary">View Experience</a>

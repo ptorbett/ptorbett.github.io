@@ -4,28 +4,35 @@ title: About Me
 
 # About Me
 
-I'm Patrick Torbett, a software engineer with a passion for building reliable, scalable systems. I enjoy tackling complex technical challenges and creating solutions that make a real difference.
+I'm Patrick Torbett, a staff software engineer with over 10 years of experience building backend systems at scale. I spent most of my career at Amazon, where I worked on fraud prevention, risk systems, and e-commerce platforms.
 
 ## What I Do
 
-I specialize in backend development and distributed systems, with experience across the full stack. My work focuses on:
+I specialize in backend development, with a focus on building systems that are reliable and maintainable. My work typically involves:
 
-- **System Design**: Architecting services that handle scale while remaining maintainable
-- **Backend Development**: Building APIs, data pipelines, and infrastructure
-- **Developer Experience**: Creating tools and workflows that help teams move faster
+- **Backend Services**: Building APIs, data pipelines, and the infrastructure that powers products
+- **Mentorship**: Helping engineers grow through code reviews, design discussions, and pairing
+- **System Evolution**: Understanding existing systems deeply before extending them
 
 ## My Approach
 
-I believe that good software comes from clear thinking and pragmatic decisions. Some principles I follow:
+I believe in "Respect What Came Before"—a principle that's shaped how I approach engineering. I like to be a code archeologist: researching the legacy I'm building on, understanding why decisions were made, and iterating from stable foundations rather than throwing everything out.
 
-1. **Simplicity first** - The best solution is often the simplest one that works
-2. **Measure, don't guess** - Data should drive technical decisions
-3. **Documentation matters** - Code is read more than it's written
-4. **Continuous improvement** - Small, consistent progress beats sporadic big changes
+Some principles I follow:
+
+1. **Understand before changing** - Research the history and context of code before modifying it
+2. **Ship and iterate** - Get working software in front of users and improve from there
+3. **Clear communication** - Whether in code, documentation, or conversation
+4. **Chesterton's Fence** - Don't remove something until you understand why it was added
 
 ## Beyond Code
 
-When I'm not coding, I enjoy reading about distributed systems, contributing to open source projects, and exploring new programming languages. I'm always looking to learn something new.
+When I'm not working, you can find me:
+
+- Reading Hacker News and technical blogs
+- Collecting LEGO Star Wars sets
+- Playing board games
+- Gaming
 
 ## Get in Touch
 

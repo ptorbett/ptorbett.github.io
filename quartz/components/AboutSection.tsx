@@ -3,22 +3,23 @@ import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } fro
 
 const AboutSection: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
   const baseDir = pathToRoot(fileData.slug!)
+  const base = baseDir === "." ? "./" : baseDir.endsWith("/") ? baseDir : baseDir + "/"
 
   return (
     <section class="about-section">
       <h2 class="section-title">About</h2>
       <div class="about-content">
         <p>
-          I'm a software engineer passionate about building systems that are reliable,
-          maintainable, and a joy to work with. I believe in writing clear code,
-          thoughtful documentation, and making pragmatic engineering decisions.
+          I'm a staff software engineer who believes in respecting what came before.
+          I like to be a code archeologist—researching the legacy I'm building on
+          and iterating from stable foundations rather than reinventing the wheel.
         </p>
         <p>
-          When I'm not coding, you can find me reading technical blogs,
-          contributing to open source, or exploring new programming languages and tools.
+          When I'm not coding, you can find me reading Hacker News, collecting LEGO Star Wars sets,
+          playing board games, or gaming.
         </p>
       </div>
-      <a href={`${baseDir}about`} class="about-link">Learn more about me →</a>
+      <a href={`${base}about`} class="about-link">Learn more about me →</a>
     </section>
   )
 }

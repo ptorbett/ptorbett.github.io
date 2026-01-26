@@ -7,19 +7,19 @@ const QuickSignals: QuartzComponent = ({}: QuartzComponentProps) => {
         <div class="signal-card">
           <h3 class="signal-title">My experience</h3>
           <p class="signal-content">
-            Building production systems with focus on reliability and performance
+            10+ years building backend systems at scale, most recently at Amazon
           </p>
         </div>
         <div class="signal-card">
           <h3 class="signal-title">My focus</h3>
           <p class="signal-content">
-            Distributed systems, backend development, and developer tooling
+            Backend development, iterating from stable foundations
           </p>
         </div>
         <div class="signal-card">
           <h3 class="signal-title">My strengths</h3>
           <p class="signal-content">
-            Problem solving, clear communication, and collaborative engineering
+            Mentorship, clear communication, and problem solving
           </p>
         </div>
       </div>
