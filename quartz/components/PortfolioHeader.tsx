@@ -16,7 +16,7 @@ const PortfolioHeader: QuartzComponent = ({ fileData, cfg, displayClass }: Quart
           <a href={`${base}about`} class="nav-link">About</a>
           <a href={`${base}experience`} class="nav-link">Experience</a>
           <a href={`${base}writing`} class="nav-link">Writing</a>
-          <a href={`${base}resume.pdf`} class="nav-link" target="_blank" rel="noopener">Resume</a>
+          <a href={`${base}resume.pdf`} class="nav-link pdf" target="_blank" rel="noopener">Resume</a>
           <a href="https://github.com/ptorbett" class="nav-link external" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="https://linkedin.com/in/ptorbett" class="nav-link external" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </nav>
@@ -84,6 +84,18 @@ PortfolioHeader.css = `
   height: 0.65rem;
   margin-left: 0.25rem;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'/%3E%3Cpolyline points='15,3 21,3 21,9'/%3E%3Cline x1='10' y1='14' x2='21' y2='3'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+}
+
+.nav-link.pdf::after {
+  content: "";
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  margin-left: 0.3rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/%3E%3Cpolyline points='14,2 14,8 20,8'/%3E%3Cline x1='16' y1='13' x2='8' y2='13'/%3E%3Cline x1='16' y1='17' x2='8' y2='17'/%3E%3C/svg%3E");
   background-size: contain;
   background-repeat: no-repeat;
   opacity: 0.6;
