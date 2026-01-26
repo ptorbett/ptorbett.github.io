@@ -77,6 +77,7 @@ body {
 // Single-column layout adjustments
 .page {
   max-width: 900px;
+  margin: 0 auto;
 
   & > #quartz-body {
     display: block;
@@ -690,7 +691,7 @@ article p:has(> img) {
 // Hero section scout style - integrated with page
 .hero {
   text-align: center;
-  padding: 3rem 1rem;
+  padding: 3rem 1.5rem;
   border: 2px solid rgba(27, 77, 46, 0.5);
   background: linear-gradient(
     180deg,
@@ -701,6 +702,7 @@ article p:has(> img) {
   margin-bottom: 2rem;
   @include paper-shadow;
   border-radius: 3px;
+  box-sizing: border-box;
 }
 
 .hero-title {
@@ -833,6 +835,143 @@ article p:has(> img) {
 
   .writing-description {
     opacity: 0.8;
+  }
+}
+
+// Experience timeline - scout manual style
+.experience-section {
+  padding: 2rem 0;
+}
+
+.experience-timeline {
+  position: relative;
+  padding-left: 1.5rem;
+
+  // Timeline line - rope style
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 3px;
+    background: repeating-linear-gradient(
+      180deg,
+      var(--secondary) 0px,
+      var(--secondary) 4px,
+      rgba(27, 77, 46, 0.3) 4px,
+      rgba(27, 77, 46, 0.3) 8px
+    );
+    border-radius: 2px;
+  }
+}
+
+.experience-card {
+  border: 1px solid rgba(27, 77, 46, 0.4) !important;
+  border-radius: 3px !important;
+  background: linear-gradient(
+    135deg,
+    rgba(245, 237, 216, 0.4) 0%,
+    rgba(230, 217, 188, 0.25) 100%
+  ) !important;
+  @include paper-shadow;
+  transition: all 0.2s ease;
+
+  &:hover {
+    @include paper-shadow-hover;
+    transform: translate(-1px, -1px);
+    border-color: rgba(27, 77, 46, 0.6) !important;
+  }
+
+  .experience-marker {
+    background: var(--secondary) !important;
+    box-shadow: 0 0 0 2px var(--secondary) !important;
+    border-color: var(--light) !important;
+  }
+
+  &:hover .experience-marker {
+    background: var(--tertiary) !important;
+    box-shadow: 0 0 0 2px var(--tertiary) !important;
+  }
+
+  .experience-title {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    @include faded-ink;
+    opacity: 0.95;
+  }
+
+  .experience-company {
+    color: var(--secondary) !important;
+    font-weight: 600;
+    opacity: 0.9;
+  }
+
+  .experience-dates {
+    opacity: 0.7;
+    font-style: italic;
+  }
+
+  .experience-highlights {
+    opacity: 0.85;
+
+    li::marker {
+      color: var(--tertiary);
+    }
+  }
+}
+
+// Experience page metadata (individual page view)
+.content-meta.experience-meta {
+  background: linear-gradient(
+    135deg,
+    rgba(27, 77, 46, 0.08) 0%,
+    rgba(230, 217, 188, 0.15) 100%
+  );
+  border: 1px solid rgba(27, 77, 46, 0.25);
+  border-left: 3px solid var(--secondary);
+  border-radius: 3px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+
+  p {
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .experience-company-line {
+    margin-bottom: 0.35rem;
+  }
+
+  .experience-company {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .experience-team {
+    font-size: 0.95rem;
+    color: var(--darkgray);
+    font-weight: 500;
+  }
+
+  .experience-details {
+    font-size: 0.9rem;
+    color: var(--gray);
+  }
+
+  .experience-location {
+    font-weight: 500;
+  }
+
+  .experience-separator {
+    opacity: 0.5;
+  }
+
+  .experience-dates {
+    font-style: italic;
   }
 }
 
@@ -1032,6 +1171,7 @@ article p:has(> img) {
 
   .hero {
     padding: 2rem 1rem;
+    margin-bottom: 1.5rem;
   }
 
   .hero-title {
