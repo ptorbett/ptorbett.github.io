@@ -29,4 +29,4 @@ When I'm not coding, I enjoy reading about distributed systems, contributing to 
 
 ## Get in Touch
 
-I'm always interested in discussing interesting projects or opportunities. Feel free to reach out via [email](mailto:patrick@example.com), connect on [LinkedIn](https://linkedin.com/in/ptorbett), or check out my work on [GitHub](https://github.com/ptorbett).
+I'm always interested in discussing interesting projects or opportunities. Feel free to reach out via [email](mailto:patrick.torbett@gmail.com), connect on [LinkedIn](https://linkedin.com/in/ptorbett), or check out my work on [GitHub](https://github.com/ptorbett).
