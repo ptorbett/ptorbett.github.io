@@ -187,10 +187,10 @@ ScrollRibbon.css = `
 
 @media (max-width: 768px) {
   .scroll-ribbon {
-    right: 1rem;
-    width: 2rem;
-    height: 4rem;
-    padding-top: 0.8rem;
+    right: 0.5rem;
+    width: 1.8rem;
+    height: 3.5rem;
+    padding-top: 0.7rem;
   }
 
   .ribbon-arrow {
