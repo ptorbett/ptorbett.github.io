@@ -3,6 +3,7 @@ import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } fro
 
 const Hero: QuartzComponent = ({ fileData, cfg }: QuartzComponentProps) => {
   const baseDir = pathToRoot(fileData.slug!)
+  const base = baseDir === "." ? "./" : baseDir.endsWith("/") ? baseDir : baseDir + "/"
   const title = cfg?.pageTitle ?? "Patrick Torbett"
 
   return (
@@ -14,8 +15,8 @@ const Hero: QuartzComponent = ({ fileData, cfg }: QuartzComponentProps) => {
           I build reliable, scalable systems and enjoy solving complex technical challenges.
         </p>
         <div class="hero-ctas">
-          <a href={`${baseDir}projects`} class="cta-primary">View Projects</a>
-          <a href={`${baseDir}about`} class="cta-secondary">About Me</a>
+          <a href={`${base}experience`} class="cta-primary">View Experience</a>
+          <a href={`${base}about`} class="cta-secondary">About Me</a>
         </div>
       </div>
     </section>
@@ -31,6 +32,7 @@ Hero.css = `
 .hero-content {
   max-width: 650px;
   margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
 .hero-title {

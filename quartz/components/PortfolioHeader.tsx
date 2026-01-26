@@ -5,16 +5,18 @@ import { classNames } from "../util/lang"
 const PortfolioHeader: QuartzComponent = ({ fileData, cfg, displayClass }: QuartzComponentProps) => {
   const title = cfg?.pageTitle ?? "Patrick Torbett"
   const baseDir = pathToRoot(fileData.slug!)
+  // Ensure baseDir ends with / for proper path joining
+  const base = baseDir === "." ? "./" : baseDir.endsWith("/") ? baseDir : baseDir + "/"
 
   return (
     <header class={classNames(displayClass, "portfolio-header")}>
       <div class="header-content">
-        <a href={baseDir} class="site-title">{title}</a>
+        <a href={base} class="site-title">{title}</a>
         <nav class="header-nav">
-          <a href={`${baseDir}about`} class="nav-link">About</a>
-          <a href={`${baseDir}projects`} class="nav-link">Projects</a>
-          <a href={`${baseDir}writing`} class="nav-link">Writing</a>
-          <a href={`${baseDir}resume.pdf`} class="nav-link" target="_blank" rel="noopener">Resume</a>
+          <a href={`${base}about`} class="nav-link">About</a>
+          <a href={`${base}experience`} class="nav-link">Experience</a>
+          <a href={`${base}writing`} class="nav-link">Writing</a>
+          <a href={`${base}resume.pdf`} class="nav-link" target="_blank" rel="noopener">Resume</a>
           <a href="https://github.com/ptorbett" class="nav-link external" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="https://linkedin.com/in/ptorbett" class="nav-link external" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </nav>

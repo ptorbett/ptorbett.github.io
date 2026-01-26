@@ -18,7 +18,7 @@ export const sharedPageComponents: SharedLayout = {
       condition: (page) => page.fileData.slug === "index",
     }),
     Component.ConditionalRender({
-      component: Component.FeaturedProjects(),
+      component: Component.ExperienceSection(),
       condition: (page) => page.fileData.slug === "index",
     }),
     Component.ConditionalRender({
