@@ -5,19 +5,19 @@ const QuickSignals: QuartzComponent = ({}: QuartzComponentProps) => {
     <section class="quick-signals">
       <div class="signals-grid">
         <div class="signal-card">
-          <h3 class="signal-title">Experience</h3>
+          <h3 class="signal-title">My experience</h3>
           <p class="signal-content">
             Building production systems with focus on reliability and performance
           </p>
         </div>
         <div class="signal-card">
-          <h3 class="signal-title">Focus</h3>
+          <h3 class="signal-title">My focus</h3>
           <p class="signal-content">
             Distributed systems, backend development, and developer tooling
           </p>
         </div>
         <div class="signal-card">
-          <h3 class="signal-title">Strengths</h3>
+          <h3 class="signal-title">My strengths</h3>
           <p class="signal-content">
             Problem solving, clear communication, and collaborative engineering
           </p>
