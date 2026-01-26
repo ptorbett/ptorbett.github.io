@@ -38,6 +38,8 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
 
     // Check if this is an experience page (but not the index)
     const isExperiencePage = slug.startsWith("experience/") && slug !== "experience/index"
+    // Check if this is a writing article (but not the index)
+    const isWritingArticle = slug.startsWith("writing/") && slug !== "writing/index"
 
     if (text) {
       // Experience page: show company, location, date range
@@ -67,27 +69,31 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
         )
       }
 
-      // Regular page: show date and reading time
-      const segments: (string | JSX.Element)[] = []
-
-      if (fileData.dates) {
-        segments.push(<Date date={getDate(cfg, fileData)!} locale={cfg.locale} />)
-      }
-
-      // Display reading time if enabled
-      if (options.showReadingTime) {
-        const { minutes, words: _words } = readingTime(text)
+      // Writing articles: show date and reading time
+      if (isWritingArticle && fileData.dates) {
+        const { minutes } = readingTime(text)
         const displayedTime = i18n(cfg.locale).components.contentMeta.readingTime({
           minutes: Math.ceil(minutes),
         })
-        segments.push(<span>{displayedTime}</span>)
+        return (
+          <p show-comma={options.showComma} class={classNames(displayClass, "content-meta")}>
+            <Date date={getDate(cfg, fileData)!} locale={cfg.locale} />
+            <span>{displayedTime}</span>
+          </p>
+        )
       }
 
-      return (
-        <p show-comma={options.showComma} class={classNames(displayClass, "content-meta")}>
-          {segments}
-        </p>
-      )
+      // Other pages: show "Last updated on <date>" without reading time
+      if (fileData.dates) {
+        return (
+          <p class={classNames(displayClass, "content-meta")}>
+            <span>Last updated on </span>
+            <Date date={getDate(cfg, fileData)!} locale={cfg.locale} />
+          </p>
+        )
+      }
+
+      return null
     } else {
       return null
     }
