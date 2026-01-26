@@ -4,15 +4,16 @@ title: About Me
 
 # About Me
 
-I'm Patrick Torbett, a staff software engineer with over 10 years of experience building backend systems at scale. I spent most of my career at Amazon, where I worked on fraud prevention, risk systems, and e-commerce platforms.
+I'm Patrick Torbett, a San Diego-based staff software engineer specializing in high-scale abuse prevention architecture and ML-powered risk decisioning systems. I spent over 10 years at Amazon as a technical leader with a focus on cross-functional collaboration, infrastructure optimization, and elevating engineering practices through mentorship and architectural guidance.
 
 ## What I Do
 
-I specialize in backend development, with a focus on building systems that are reliable and maintainable. My work typically involves:
+I specialize in distributed systems and ML-powered risk platforms. My work typically involves:
 
-- **Backend Services**: Building APIs, data pipelines, and the infrastructure that powers products
-- **Mentorship**: Helping engineers grow through code reviews, design discussions, and pairing
-- **System Evolution**: Understanding existing systems deeply before extending them
+- **Abuse Prevention Architecture**: Designing systems that protect e-commerce platforms at scale (10k+ TPS)
+- **Technical Leadership**: Driving engineering strategy across multiple teams and domains
+- **Mentorship**: Scaling engineering excellence through office hours, guides, and cross-functional workshops
+- **Infrastructure Optimization**: Achieving significant cost reductions through profiling and right-sizing
 
 ## My Approach
 

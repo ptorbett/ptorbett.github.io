@@ -12,7 +12,7 @@ const Hero: QuartzComponent = ({ fileData, cfg }: QuartzComponentProps) => {
         <h1 class="hero-title">{title}</h1>
         <p class="hero-role">Staff Software Engineer</p>
         <p class="hero-tagline">
-          I build backend systems and help engineers grow through mentorship and clear communication.
+          I specialize in high-scale abuse prevention systems and ML-powered risk decisioning, while helping engineers grow through mentorship and clear communication.
         </p>
         <div class="hero-ctas">
           <a href={`${base}experience`} class="cta-primary">View Experience</a>

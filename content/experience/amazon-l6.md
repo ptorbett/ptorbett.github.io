@@ -7,18 +7,22 @@ endDate: "2026-01"
 team: Buyer Risk Prevention
 featured: true
 highlights:
-  - Lead team specializing in feature engineering and data access for abuse use cases across 50+ ML evaluation integrations
-  - Architected systems scaling to 10k+ transactions per second during sales events
+  - Led architecture tackling $800MM/year Buyer Abuse Prevention across e-commerce domains
+  - Designed distributed ML feature platform processing 10k+ TPS for real-time risk decisioning
+  - Scaled engineering excellence across 6 global teams (~60 engineers)
 ---
 
-Technical lead for feature engineering and data access supporting abuse prevention use cases in collaboration with ML scientists. Integrating and designing ML features for key e-commerce areas including returns, refunds, checkout, order fulfillment, customer service, shipment tracking/delivery, and payments.
+Technical leader for feature engineering and ML-powered risk decisioning systems supporting abuse prevention across Amazon's global customer base.
 
 ## Key Accomplishments
 
-- Created goals, planned roadmaps, and evolved architecture focusing on signal accuracy, system uptime, and scaling for sales event driven traffic exceeding 10k+ transactions per second
-- Architected integrations for multiple business models (Zappos, Haul, Global Stores, etc.), developing flexible frameworks that adapt core risk controls to different customer journeys while maintaining security standards
-- Collaborated with other tech leads (L6s, L7s) in customer service areas to design and implement integrations that scale abusive customer contact reductions
-- Led technical consultations with product stakeholders for projects defending against malicious customer service contacts and unifying risk signals across the customer journey
-- Improved scientist productivity by creating ML feature engineering reference guides
-- Scaled mentoring with focus on team leads and documentation/tooling creation to multiply impact across the organization
-- Achieved 30% fleet cost reduction through JVM profiling (CodeGuru Profiler), EC2 instance optimization, and dynamic auto-scaling policies
+- **$800MM/year impact**: Led architecture and engineering strategy for Buyer Abuse Prevention across e-commerce domains; designed distributed, multi-tenant ML feature platform processing 10k+ TPS
+- **Account clustering migration**: Led migration of key risk signal with $100MM-$500MM/year impact; architected phased rollout and shadow testing framework
+- **Performance-accuracy trade-offs**: Orchestrated 50+ detection points spanning returns, checkout, and payments; balanced sub-150ms real-time decisions with comprehensive offline evaluations
+- **Customer service partnership**: Drove strategic alignment delivering $1.5MM/year savings while designing enhanced experience paths for high-risk interactions
+- **Engineering-ML bridge**: Created feature engineering guides and cross-functional workshops, reducing support queries by 22% and eliminating integration bottlenecks
+- **Scaled mentorship**: Conducted weekly office hours, authored best practice guides, and fostered feedback culture across 6 global teams (~60 engineers)
+- **33% infrastructure cost optimization**: Led hands-on workshops for JVM profiling, instance right-sizing, buffer reduction, and dynamic scaling
+- **AI adoption**: Used Claude 3.5 LLM to build migration accelerator for 250+ workflows across 10 teams; created strategic roadmap for broader adoption
+
+**Technologies**: Java, TypeScript (AWS CDK), Python ML pipelines

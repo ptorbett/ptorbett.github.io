@@ -7,14 +7,17 @@ endDate: "2021-07"
 team: Buyer Risk Prevention
 featured: true
 highlights:
-  - Modernized backend services supporting 100s of investigators reviewing account data for abuse detection
-  - Replaced monthly releases with full CI/CD pipeline and automated Selenium UI testing
+  - Revitalized abusive account review tool supporting 1000+ investigators
+  - Transformed release process from monthly cycles to continuous delivery
 ---
 
-Refurbished and modernized the backend services that support hundreds of investigator users who review account data for abuse detection and enforcement.
+Revitalized and modernized the backend services supporting abuse detection and enforcement workflows used by over 1000 investigators globally.
 
 ## Key Accomplishments
 
-- Applied clean code and SOLID principles to legacy codebase using Spring MVC
-- Replaced monthly release cadence with full CI/CD releases
-- Implemented automated Selenium UI testing and alerting
+- **Code modernization**: Transformed unmaintained legacy system into maintainable service using Java, Spring MVC, SOLID principles, and clean design patterns
+- **Seamless handoff**: Solo development that enabled successful transition to a dedicated tooling team
+- **Continuous delivery**: Transformed release process from monthly cycles to continuous delivery
+- **Automated testing**: Implemented Selenium UI testing and monitoring that reduced deployment failures and shortened feature delivery from weeks to days
+
+**Technologies**: Java, Spring MVC, Selenium

@@ -7,13 +7,16 @@ endDate: "2019-05"
 team: ReCommerce
 featured: true
 highlights:
-  - Led development of "Prophecy" system optimizing 1+ billion annual decisions for returned/damaged products
-  - Designed inventory partitioning system enabling direct B2B liquidation sales
+  - Led development of "Prophecy" system handling 1+ billion inventory routing decisions annually
+  - Designed inventory partitioning enabling granular B2B pallet-level sales
 ---
 
-Led development of warehouse optimization systems for Amazon's reverse logistics operations, improving economic recovery of no-longer-new inventory.
+Led development of warehouse optimization systems for Amazon's reverse logistics operations, maximizing economic recovery from returned and damaged inventory.
 
 ## Key Accomplishments
 
-- **Prophecy**: Led the development of an optimization system behind 1+ billion decisions annually for returned/damaged products, improving economic recovery through algorithmic routing instead of hard-coded business rules
-- Designed inventory partitioning system allowing the business to palletize liquidation inventory for direct B2B sales instead of truckload level transactions
+- **Prophecy**: Led development of enterprise-scale decision system handling 1+ billion inventory routing decisions annually; leveraged caching and concurrent processing to meet latency requirements while maximizing economic recovery
+- **B2B sales enablement**: Designed inventory partitioning scheme to unblock granular B2B sales at pallet level versus truckload-only
+- **Quality evaluation**: Maintained Ruby on Rails application guiding associates worldwide through returned/damaged product quality evaluation flows
+
+**Technologies**: Java, Ruby on Rails, AWS

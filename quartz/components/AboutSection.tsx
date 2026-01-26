@@ -10,9 +10,9 @@ const AboutSection: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
       <h2 class="section-title">About</h2>
       <div class="about-content">
         <p>
-          I'm a staff software engineer who believes in respecting what came before.
-          I like to be a code archeologist—researching the legacy I'm building on
-          and iterating from stable foundations rather than reinventing the wheel.
+          I'm a San Diego-based staff software engineer specializing in high-scale abuse prevention
+          and ML-powered risk systems. I believe in respecting what came before, researching the
+          legacy I'm building on, and iterating from stable foundations.
         </p>
         <p>
           When I'm not coding, you can find me reading Hacker News, collecting LEGO Star Wars sets,
